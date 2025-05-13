@@ -121,18 +121,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="mt-16 w-full">
-      <iframe
-        title="Google Map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.093418708114!2d144.96305831531703!3d-37.81362797975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f27fb33b%3A0x5045675218ce7e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sin!4v1619167419330!5m2!1sen!2sin"
-        width="100%"
-        height="400"
-        style={{ border: 0 }}
-        allowFullScreen=""
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
-</div>
+      
     </div>
   );
 };

@@ -20,27 +20,27 @@ const NdisHomeEnquiry = () => {
             <input
               type="text"
               placeholder="Name"
-              className="border border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              className="border border-purple-300 text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
             />
             <input
               type="email"
               placeholder="Email"
-              className="border border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              className="border border-purple-300 text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
             />
             <input
               type="tel"
               placeholder="Telephone"
-              className="border border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              className="border border-purple-300 text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
             />
             <input
               placeholder="Location of Service"
-              className="border border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              className="border border-purple-300 text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
             />
           </div>
           <textarea
             rows="6"
             placeholder="Message"
-            className="w-full border font-serif border-purple-300 rounded-xl p-4 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm resize-none"
+            className="w-full border font-serif text-black border-purple-300 rounded-xl p-4 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm resize-none"
           ></textarea>
           <div className="text-left">
             <button

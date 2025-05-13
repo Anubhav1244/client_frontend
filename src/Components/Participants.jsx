@@ -43,15 +43,15 @@ export default function App() {
 
         <div className="col-span-2">
           <p className="text-purple-800 font-serif mb-2">Mobility</p>
-          <div className="flex gap-6">
-            <label><input type="radio" name="mobility" value="have" onChange={handleRadioChange} className="mr-2" />I have mobility problems</label>
-            <label><input type="radio" name="mobility" value="dont" onChange={handleRadioChange} className="mr-2" />I don't have mobility problems</label>
+          <div className="flex gap-6 text-black">
+            <label><input type="radio" name="mobility" value="have" onChange={handleRadioChange} className="mr-2 text-black" />I have mobility problems</label>
+            <label><input type="radio" name="mobility" value="dont" onChange={handleRadioChange} className="mr-2 text-black" />I don't have mobility problems</label>
           </div>
         </div>
 
         <div className="col-span-2">
           <p className="text-purple-800 font-serif mb-2">Allergies</p>
-          <div className="flex gap-6">
+          <div className="flex gap-6 text-black">
             <label><input type="radio" name="allergies" value="have" onChange={handleRadioChange} className="mr-2" />I have allergies</label>
             <label><input type="radio" name="allergies" value="dont" onChange={handleRadioChange} className="mr-2" />I don't have allergies</label>
           </div>
@@ -59,7 +59,7 @@ export default function App() {
 
         <div className="col-span-2">
           <p className="text-purple-800 font-serif mb-2">Speech Impediments</p>
-          <div className="flex gap-6">
+          <div className="flex gap-6 text-black">
             <label><input type="radio" name="speech" value="have" onChange={handleRadioChange} className="mr-2" />I have a speech impediment</label>
             <label><input type="radio" name="speech" value="dont" onChange={handleRadioChange} className="mr-2" />I don't have a speech impediment</label>
           </div>

@@ -13,30 +13,28 @@ const navLinks = [
 const NavbarNew = () => {
   return (
     <header className="w-full shadow-sm">
-      <div className="flex items-center  font-serif justify-between px-36 py-3 bg-gray-50">
+      <div className="flex items-center w-full justify-between font-serif  px-36 py-3 bg-gray-50">
         {/* Logo */}
         <div className="flex flex-col items-center">
   <img
     src="/images/logo.png"
     alt="Access Logo"
-    className="w-44 h-36"
+    className="w-46 h-38"
   />
-  <div className="text-center font-serif  text-[#59168b] ">
-    <p className="text-sm ">Nurture Disability and Support Services </p>
-    {/* <p className="text-xs">and Support Services</p> */}
-  </div>
-</div>
-
-
+      <div className="text-center font-serif  text-[#59168b] ">
+        <p className="text-sm ">Nurture Disability Support Services </p>
+        {/* <p className="text-xs">and Support Services</p> */}
+      </div>
+        </div>
         {/* Contact */}
-        <div className="flex justify-end items-center pr-8">
-  <div className="flex items-center space-x-6  font-serif">
+        <div className="flex justify-center items-center space-x-24 mx-10">
+        <div className="flex items-center space-x-6  font-serif">
     {/* Email */}
     <div className="flex  items-center space-x-2">
       <span className="border border-green-500  p-1 rounded-sm font-serif text-green-600">
         📧
       </span>
-      <span>info@communityandcare.com.au</span>
+      <span className="text-black">info@nurturedisability.com.au</span>
     </div>
 
     {/* Phone */}
@@ -44,9 +42,9 @@ const NavbarNew = () => {
       <span className="border border-green-500 p-1 font-serif rounded-sm text-green-600">
         📞
       </span>
-      <span>1800 911 999</span>
+      <span className="text-black">0411910741 , 0423301149</span>
     </div>
-  </div>
+        </div>
 </div>
 
         {/* Search + Buttons */}

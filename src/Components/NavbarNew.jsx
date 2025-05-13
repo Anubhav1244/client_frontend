@@ -16,11 +16,11 @@ const NavbarNew = () => {
       <div className="flex items-center w-full justify-between font-serif  px-36 py-3 bg-gray-50">
         {/* Logo */}
         <div className="flex flex-col items-center">
-  <img
-    src="/images/logo.png"
-    alt="Access Logo"
-    className="w-46 h-38"
-  />
+          <img
+            src="/images/logo.png"
+            alt="Access Logo"
+            className="w-46 h-38"
+          />
       <div className="text-center font-serif  text-[#59168b] ">
         <p className="text-sm ">Nurture Disability Support Services </p>
         {/* <p className="text-xs">and Support Services</p> */}

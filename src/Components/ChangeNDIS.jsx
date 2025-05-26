@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import photo from "../assets/photo.jpg";
-import Photo2 from "../assets/Photo2.jpg";
+import Photo2 from "../assets/photo2.jpg";
 
 const infoSections = [
   {

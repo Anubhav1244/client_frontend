@@ -8,6 +8,7 @@ import Contact from './Pages/Contact'
 import NavbarNew from './Components/NavbarNew'
 import Service from './Pages/Service'
 import NDIS from './Pages/Ndis'
+import GetHelpNowForm from './Components/Gethelp'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
     {/* <Navbar/> */}
     <NavbarNew/>
     <Routes>
+      <Route element={<GetHelpNowForm/>} path='/Gethelp'/>
       <Route element={<HomeAllSections/>}  path='/'/>
       <Route element={<About/>}  path='/about-us'/>
       <Route element={<Contact/>} path='/contact'/>

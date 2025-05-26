@@ -3,44 +3,79 @@ import React, { useState } from "react";
 const faqData = [
   {
     question: "Who is eligible for the NDIS?",
-    answer:
-      "People under 65 with a permanent and significant disability may be eligible."
+    answer: (
+      <>
+        People under 65 with a permanent and significant disability may be eligible. You can refer to the{" "}
+        <a
+          href="https://www.ndis.gov.au/applying-access-ndis/am-i-eligible"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline hover:text-blue-800"
+        >
+          Eligibility Checklist
+        </a>{" "}
+        to see if you qualify for the NDIS.
+      </>
+    ),
   },
   {
     question: "How do I apply for the NDIS?",
-    answer:
-      "You can apply through the NDIS website or by calling the NDIS contact center."
+    answer: (
+      <>
+        To apply for the NDIS, you need to complete an{" "}
+        <a
+          href="https://www.ndis.gov.au/applying-access-ndis/how-apply"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline hover:text-blue-800"
+        >
+          Access Request Form
+        </a>
+        , which you can find on the NDIS website or by calling the NDIS contact centre.
+      </>
+    ),
   },
   {
     question: "How does the NDIS funding process work?",
     answer:
-      "Funding is based on your needs and goals, and it's discussed during your planning meeting."
+      "Funding is based on your needs and goals, and it's discussed during your planning meeting.",
   },
   {
     question: "How do I find a service provider through the NDIS?",
     answer:
-      "You can use the NDIS Provider Finder tool on the NDIS website to search for providers."
+       <>
+      You can use the NDIS Provider Finder tool on the NDIS website to search for providers{" "}
+      <a
+        href="https://www.ndis.gov.au/participants/working-providers"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 underline hover:text-blue-800"
+      >
+        from here
+      </a>
+      .
+    </>
   },
   {
     question: "Can I choose my own service provider?",
     answer:
-      "Yes, participants have the freedom to choose and change their service providers."
+      "Yes, participants have the freedom to choose and change their service providers.",
   },
   {
     question: "Can I start planning before my first meeting with the NDIS?",
     answer:
-      "Yes, preparing early helps you clearly express your goals and support needs."
+      "Yes, preparing early helps you clearly express your goals and support needs.",
   },
   {
     question: "How do I manage my NDIS plan and budget?",
     answer:
-      "You can manage it yourself, with a plan manager, or let the NDIA manage it for you."
+      "You can manage it yourself, with a plan manager, or let the NDIA manage it for you.",
   },
   {
     question: "What happens if I'm not happy with my service provider?",
     answer:
-      "You can change providers or make a complaint through the NDIS Commission."
-  }
+      "You can change providers or make a complaint through the NDIS Commission.",
+  },
 ];
 
 export default function App() {

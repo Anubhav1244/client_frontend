@@ -6,69 +6,57 @@ const navLinks = [
   { label: "About us", path: "/about-us" },
   { label: "NDIS", path: "/ndis" },
   { label: "Services", path: "/services" },
-  // { label: "Brochure", path: "/" },
   { label: "Contact us", path: "/contact" },
 ];
 
 const NavbarNew = () => {
   return (
     <header className="w-full shadow-sm">
-      <div className="flex items-center w-full justify-between font-serif  px-36 py-3 bg-gray-50">
+      {/* Top section with logo and contact */}
+      <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-36 py-4 bg-gray-50 font-serif space-y-4 md:space-y-0">
         {/* Logo */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <img
             src="/images/logo.png"
             alt="Access Logo"
-            className="w-46 h-38"
+            className="w-40 h-auto md:w-56 md:h-44 object-contain"
           />
-      <div className="text-center font-serif  text-[#59168b] ">
-        <p className="text-sm ">Nurture Disability Support Services </p>
-        {/* <p className="text-xs">and Support Services</p> */}
-      </div>
+          <p className="text-[#59168b] text-sm mt-2">
+            Nurture Disability Support Services
+          </p>
         </div>
-        {/* Contact */}
-        <div className="flex justify-center items-center space-x-24 mx-10">
-        <div className="flex items-center space-x-6  font-serif">
-    {/* Email */}
-    <div className="flex  items-center space-x-2">
-      <span className="border border-green-500  p-1 rounded-sm font-serif text-green-600">
-        📧
-      </span>
-      <span className="text-black">info@nurturedisability.com.au</span>
-    </div>
 
-    {/* Phone */}
-    <div className="flex items-center space-x-2">
-      <span className="border border-green-500 p-1 font-serif rounded-sm text-green-600">
-        📞
-      </span>
-      <span className="text-black">0411910741 , 0423301149</span>
-    </div>
-        </div>
-</div>
+        {/* Contact Info */}
+        <div className="flex flex-col items-center md:items-end space-y-2 text-sm">
+          {/* Email */}
+          <div className="flex items-center space-x-2">
+            <span className="border border-green-500 p-1 rounded-sm text-green-600">
+              📧
+            </span>
+            <span className="text-center text-black md:text-right break-all">
+              info@nurturedisability.com.au
+            </span>
+          </div>
 
-        {/* Search + Buttons */}
-        <div className="flex items-center gap-3">
-          {/* <input
-            type="text"
-            placeholder="Search"
-            className="border rounded-full px-4 py-1 text-sm focus:outline-none"
-          /> */}
-          {/* <button className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-1 px-4 rounded-full">
-            Referral
-          </button>
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-1 px-4 rounded-full">
-            Book
-          </button> */}
+          {/* Phone */}
+          <div className="flex items-center space-x-2">
+            <span className="border  border-green-500 p-1 rounded-sm text-green-600">
+              📞
+            </span>
+            <span className="text-black flex items-center">0411910741 , 0423301149</span>
+          </div>
         </div>
       </div>
 
       {/* Navigation Links */}
-      <nav className="bg-purple-900 font-serif  px-6 py-4 border-t border-gray-200">
-        <ul className="flex flex-wrap justify-center gap-6 text-sm  text-white">
+      <nav className="bg-purple-900 px-4 md:px-6 py-3 border-t border-gray-200 font-serif">
+        <ul className="flex flex-wrap justify-center gap-4 md:gap-6 text-white text-sm">
           {navLinks.map((link, index) => (
             <li key={index}>
-              <Link to={link.path} className="hover:text-blue-600 text-lg transition-colors font-medium">
+              <Link
+                to={link.path}
+                className="hover:text-blue-400 text-base md:text-lg transition-colors font-medium"
+              >
                 {link.label}
               </Link>
             </li>

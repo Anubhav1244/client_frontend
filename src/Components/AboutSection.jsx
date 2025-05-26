@@ -70,7 +70,7 @@ const About = () => {
     <>
       {/* Section 1 */}
       <motion.div
-        className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-16 bg-white"
+        className="flex flex-col md:flex-row items-center font-serif justify-between px-6 md:px-20 py-16 bg-white"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -117,8 +117,8 @@ const About = () => {
             className="rounded-lg shadow-xl w-full max-w-md mx-auto md:mx-0"
           />
         </motion.div>
-        <div className="md:w-1/2 md:pl-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-purple-900 mb-6">
+        <div className="md:w-1/2  font-serif md:pl-12">
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold text-purple-900 mb-6">
             PERSONALIZED SUPPORT
           </h2>
           <p className="text-gray-700 text-lg mb-4">
@@ -131,7 +131,7 @@ const About = () => {
       </div>
 
       {/* Mission Vision Values Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 text-8xl font-serif md:grid-cols-3">
         {infoSections.map((section) => (
           <motion.div
             key={section.key}
@@ -182,7 +182,7 @@ const About = () => {
       </div>
 
       {/* Key Pillars Section */}
-      <div className="bg-purple-900 py-16 px-4">
+      <div className="bg-[#dcf7b0] font-serif py-16 px-4">
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 50 }}

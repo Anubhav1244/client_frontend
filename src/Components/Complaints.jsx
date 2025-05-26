@@ -22,12 +22,12 @@ const ComplaintForm = () => {
   };
 
   return (
-    <div className="h-full bg-purple-900 flex items-center justify-center px-4 py-10">
+    <div className="h-full bg-yellow-100 flex items-center justify-center px-4 py-10">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-5xl space-y-6"
       >
-        <h1 className="text-white text-center text-4xl font-serif mb-6">
+        <h1 className="text-purple-900 text-center text-4xl font-serif mb-6">
           COMPLAINT
         </h1>
 

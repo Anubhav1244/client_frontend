@@ -1,30 +1,32 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import photo from "../assets/photo.jpg";
-import Photo2 from "../assets/photo2.jpg";
+import Photo2 from "../assets/Photo2.jpg";
 
 const infoSections = [
   {
-    key: "Step-1",
-    image: photo,
-    content:
-      "Our mission is to empower individuals with disabilities by providing accessible and high-quality support that promotes independence and dignity.",
-    bg: "bg-lime-400",
-  },
-  {
-    key: "Step-2",
-    image: Photo2,
-    content:
-      "We envision a world where all individuals, regardless of ability, have equal opportunities to thrive and contribute meaningfully to society.",
-    bg: "bg-orange-300",
-  },
-  {
-    key: "Step-3",
-    image: photo,
-    content:
-      "Integrity, empathy, and commitment are the core values that guide our every action and decision.",
-    bg: "bg-purple-400",
-  },
+  key: "Step-1",
+  image: photo,
+
+  content:
+    "Our mission is to empower individuals with disabilities by providing accessible, inclusive, and high-quality support services. We are committed to creating environments where individuals feel respected, valued, and encouraged to reach their full potential. Through personalized care and innovative solutions, we aim to enhance independence, promote dignity, and improve overall quality of life.",
+  bg: "bg-lime-400 "  ,
+},
+{
+  key: "Step-2",
+  image: Photo2,
+  content:
+    "We envision a world where every individual—regardless of their physical or cognitive abilities—has equal access to opportunities, resources, and platforms to thrive. Our vision is rooted in the belief that inclusion and diversity enrich communities. We strive for a society where people with disabilities are empowered to live fulfilling lives and contribute meaningfully at all levels.",
+  bg: "bg-orange-300",
+},
+{
+  key: "Step-3",
+  image: photo,
+  content:
+    "Integrity, empathy, and commitment are the foundational values that guide our actions and decisions. We hold ourselves accountable to the highest ethical standards, approach every individual with compassion and respect, and dedicate ourselves fully to the mission of inclusion and empowerment. These values shape our culture, our services, and the impact we aim to make in the lives of those we support.",
+  bg: "bg-purple-400",
+}
+
 ];
 
 export default function ChangeProvider() {
@@ -37,7 +39,7 @@ export default function ChangeProvider() {
   return (
     <div className="w-full">
       {/* Top Section */}
-      <div className="bg-lime-500 text-white text-center py-12 px-6 sm:px-8 md:px-12">
+      <div className="bg-lime-500  font-serif text-white text-center py-12 px-6 sm:px-8 md:px-12">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">
           HOW TO CHANGE NDIS PROVIDERS?
         </h2>
@@ -52,7 +54,7 @@ export default function ChangeProvider() {
         </p>
         <p className="font-bold text-lg sm:text-xl mt-6">
           We are happy to assist you throughout this process. Simply call{" "}
-          <span className="underline">0411910741 , 0423301149</span>
+          <span className="underline">1800 911 999</span>
         </p>
       </div>
 
@@ -61,7 +63,7 @@ export default function ChangeProvider() {
         {infoSections.map((section) => (
           <div
             key={section.key}
-            className={`relative h-80 flex items-center justify-center cursor-pointer overflow-hidden transition-all duration-500 ${
+            className={`relative h-80  text-7xl font-serif  flex items-center justify-center cursor-pointer overflow-hidden transition-all duration-500 ${
               activeCard === section.key ? section.bg : ""
             }`}
             style={{

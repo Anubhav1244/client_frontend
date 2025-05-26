@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-
+import { apiConnector } from "../ApiConnector/Axios";
+import toast, { Toaster } from "react-hot-toast";
+import { FEEDBACK } from "../ApiConnector/apis";
 const FeedbackForm = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     address: "",
@@ -20,157 +23,158 @@ const FeedbackForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted: ", formData);
+
+    try {
+      // Validate form data
+      if (
+        !formData.firstName ||!formData.address ||
+        !formData.contact || !formData.email ||
+        !formData.serviceExperience || !formData.improvement ||
+        !formData.favorite || !formData.overallRating ||
+        !formData.equalityRating || !formData.transparencyRating
+      ){
+        toast.error("Please fill in all required fields.");
+        throw new Error("Form validation failed");
+      }
+      // Prepare data for API request
+      const data ={
+        firstName: formData.firstName,
+        residenceAddress: formData.address,
+        phone: formData.contact,
+        email: formData.email,
+        foundServiceSofar: formData.serviceExperience,
+        anyImprovements: formData.improvement,
+        likeMostAboutService: formData.favorite,
+        ratingoverAllService: formData.overallRating,
+        ratingbeingfair: formData.equalityRating,
+        ratingbeingTransparent: formData.transparencyRating,
+        feedback: formData.additional,
+
+      }
+      const response= await apiConnector("POST",FEEDBACK, data, null, null);
+      console.log(response);
+      setTimeout(() => setLoading(true), 5000);
+      if(response.status === 200 || response.status === 204){ 
+        setLoading(false);
+        toast.success("Feedback submitted successfully!");
+         // Reset form
+        setFormData({
+        firstName: "",
+        address: "",
+        contact: "",
+        email: "",
+        serviceExperience: "",
+        improvement: "",
+        favorite: "",
+        overallRating: "1",
+        equalityRating: "1",
+        transparencyRating: "1",
+        additional: "",
+      });
+        return;
+      }
+       throw new Error("Failed to submit feedback");
+     
+      
+    } catch (error) {
+      console.error("Error submitting feedback:", error);
+      toast.error("Error submitting feedback.");
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4">
-      <h1 className="text-center text-4xl font-serif text-purple-800 mb-10">FEEDBACK</h1>
+    <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-green-200 py-10 px-4 flex items-center justify-center">
+      <div className="backdrop-blur-md bg-lime-400/30 border border-lime-300/50 shadow-2xl rounded-3xl p-8 w-full max-w-5xl">
+        <h1 className="text-center text-4xl font-serif text-lime-700 mb-10 drop-shadow-md">
+          FEEDBACK
+        </h1>
 
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6"
-      >
-        {/* Text Inputs */}
-        <input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          value={formData.firstName}
-          onChange={handleChange}
-          className="p-4 bg-purple-800 text-white shadow-md placeholder-white"
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="Residence Address"
-          value={formData.address}
-          onChange={handleChange}
-          className="p-4 bg-purple-800 text-white shadow-md placeholder-white"
-        />
-        <input
-          type="text"
-          name="contact"
-          placeholder="Contact Number"
-          value={formData.contact}
-          onChange={handleChange}
-          className="p-4 bg-purple-800 text-white shadow-md placeholder-white"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={formData.email}
-          onChange={handleChange}
-          className="p-4 bg-purple-800 text-white shadow-md placeholder-white"
-        />
-        <input
-          type="text"
-          name="serviceExperience"
-          placeholder="How have you found your service so far?"
-          value={formData.serviceExperience}
-          onChange={handleChange}
-          className="p-4 bg-purple-800 text-white shadow-md placeholder-white"
-        />
-        <input
-          type="text"
-          name="improvement"
-          placeholder="If there was anything we could improve on, what would it be?"
-          value={formData.improvement}
-          onChange={handleChange}
-          className="p-4 bg-purple-800 text-white shadow-md placeholder-white"
-        />
-        <input
-          type="text"
-          name="favorite"
-          placeholder="What do you like most about our service?"
-          value={formData.favorite}
-          onChange={handleChange}
-          className="p-4 bg-purple-800 text-white shadow-md placeholder-white md:col-span-2"
-        />
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            ["firstName", "First Name"],
+            ["address", "Residence Address"],
+            ["contact", "Contact Number"],
+            ["email", "Email Address"],
+            ["serviceExperience", "How have you found your service so far?"],
+            ["improvement", "What could we improve?"],
+            ["favorite", "What do you like most about our service?"],
+          ].map(([name, placeholder]) => (
+            <input
+              key={name}
+              type={name === "email" ? "email" : "text"}
+              name={name}
+              placeholder={placeholder}
+              value={formData[name]}
+              onChange={handleChange}
+              className={`p-4 rounded-lg bg-white/30 border border-white/20 text-lime-900 placeholder-lime-800 shadow-md focus:outline-none focus:ring-2 focus:ring-lime-500 ${
+                name === "favorite" ? "md:col-span-2" : ""
+              }`}
+            />
+          ))}
 
-        {/* Ratings */}
-        <div>
-          <label className="text-purple-800 font-serif block mb-1">
-            Rate our overall service
-          </label>
-          <div className="space-x-4 text-purple-800">
-            {[1, 2, 3, 4, 5].map((num) => (
-              <label key={num}>
-                <input
-                  type="radio"
-                  name="overallRating"
-                  value={num}
-                  checked={formData.overallRating === `${num}`}
-                  onChange={handleChange}
-                  className="mr-1"
-                />
-                {num}
-              </label>
-            ))}
+          {[
+            ["overallRating", "Rate our overall service"],
+            ["transparencyRating", "How would you rate transparency?"],
+          ].map(([name, label]) => (
+            <div key={name}>
+              <label className="text-lime-900 font-serif block mb-1">{label}</label>
+              <div className="space-x-4 text-lime-800">
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <label key={num}>
+                    <input
+                      type="radio"
+                      name={name}
+                      value={num}
+                      checked={formData[name] === `${num}`}
+                      onChange={handleChange}
+                      className="mr-1"
+                    />
+                    {num}
+                  </label>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          <div className="md:col-span-2">
+            <label className="text-lime-900 font-serif block mb-1">
+              Rate our fairness and equality
+            </label>
+            <div className="space-x-4 text-lime-800">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <label key={num}>
+                  <input
+                    type="radio"
+                    name="equalityRating"
+                    value={num}
+                    checked={formData.equalityRating === `${num}`}
+                    onChange={handleChange}
+                    className="mr-1"
+                  />
+                  {num}
+                </label>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div>
-          <label className="text-purple-800 font-serif block mb-1">
-            How would you rate our service in terms of being transparent?
-          </label>
-          <div className="space-x-4 text-purple-800">
-            {[1, 2, 3, 4, 5].map((num) => (
-              <label key={num}>
-                <input
-                  type="radio"
-                  name="transparencyRating"
-                  value={num}
-                  checked={formData.transparencyRating === `${num}`}
-                  onChange={handleChange}
-                  className="mr-1"
-                />
-                {num}
-              </label>
-            ))}
-          </div>
-        </div>
+          <textarea
+            name="additional"
+            placeholder="Is there anything else you would like us to know?"
+            value={formData.additional}
+            onChange={handleChange}
+            className="p-4 rounded-lg bg-white/30 border border-white/20 text-lime-900 placeholder-lime-800 shadow-md h-32 md:col-span-2 focus:outline-none focus:ring-2 focus:ring-lime-500"
+          />
 
-        <div className="md:col-span-2">
-          <label className="text-purple-800 font-serif block mb-1">
-            How would you rate our service in terms of being fair and equal?
-          </label>
-          <div className="space-x-4 text-purple-800">
-            {[1, 2, 3, 4, 5].map((num) => (
-              <label key={num}>
-                <input
-                  type="radio"
-                  name="equalityRating"
-                  value={num}
-                  checked={formData.equalityRating === `${num}`}
-                  onChange={handleChange}
-                  className="mr-1"
-                />
-                {num}
-              </label>
-            ))}
-          </div>
-        </div>
-
-        {/* Textarea */}
-        <textarea
-          name="additional"
-          placeholder="Is there anything else you would like us to know?"
-          value={formData.additional}
-          onChange={handleChange}
-          className="p-4 bg-purple-800 text-white shadow-md placeholder-white h-32 md:col-span-2"
-        />
-
-        <button
-          type="submit"
-          className="bg-purple-700 text-white py-3 px-6 rounded hover:bg-purple-900 md:col-span-2"
-        >
-          Submit Feedback
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="bg-lime-500/80 text-white py-3 px-6 rounded-xl font-semibold tracking-wide hover:bg-lime-600 transition-all md:col-span-2 shadow-lg"
+          >
+            Submit Feedback
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

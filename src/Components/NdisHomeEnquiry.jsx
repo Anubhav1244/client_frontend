@@ -1,9 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import { apiConnector } from "../ApiConnector/Axios";
+import toast, { Toaster } from "react-hot-toast";
+import { th } from "framer-motion/client";
 const NdisHomeEnquiry = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    locationofservice: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    const { name, email, phone, locationofservice, message } = formData;
+    const data = { name, email, phone, locationofservice, message };
+
+    await apiConnector("POST", "http://localhost:4000/api/v1/makeanEnquiry", data, null, null)
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          toast.success("Enquiry submitted successfully!");
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            locationofservice: "",
+            message: ""
+          });
+        } else {
+          toast.error("Failed to submit enquiry. Please try again.");
+          throw new Error("Failed to submit enquiry");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("An error occurred. Please try again.");
+      });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-purple-50 flex flex-col lg:flex-row items-start justify-between px-6 md:px-16 py-16 gap-10">
+
       {/* Left Form Section */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -12,35 +59,52 @@ const NdisHomeEnquiry = () => {
         viewport={{ once: true, amount: 0.2 }}
         className="bg-white rounded-3xl p-10 w-full lg:w-1/2 border border-purple-100"
       >
-        <h2 className="text-3xl  text-purple-900 mb-8 font-serif tracking-wide">
+        <h2 className="text-3xl text-purple-900 mb-8 font-serif tracking-wide">
           MAKE AN ENQUIRY
         </h2>
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 font-serif md:grid-cols-2 gap-6">
             <input
+              name="name"
               type="text"
               placeholder="Name"
-              className="border border-purple-300 text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              value={formData.name}
+              onChange={handleChange}
+              className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              required
             />
             <input
+              name="email"
               type="email"
               placeholder="Email"
-              className="border border-purple-300 text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              value={formData.email}
+              onChange={handleChange}
+              className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              required
             />
             <input
+              name="phone"
               type="tel"
               placeholder="Telephone"
-              className="border border-purple-300 text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              value={formData.phone}
+              onChange={handleChange}
+              className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
             />
             <input
+              name="locationofservice"
               placeholder="Location of Service"
-              className="border border-purple-300 text-black rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+              value={formData.locationofservice}
+              onChange={handleChange}
+              className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
             />
           </div>
           <textarea
+            name="message"
             rows="6"
             placeholder="Message"
-            className="w-full border font-serif text-black border-purple-300 rounded-xl p-4 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm resize-none"
+            value={formData.message}
+            onChange={handleChange}
+            className="w-full border text-black font-serif border-purple-300 rounded-xl p-4 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm resize-none"
           ></textarea>
           <div className="text-left">
             <button
@@ -62,7 +126,7 @@ const NdisHomeEnquiry = () => {
         className="w-full lg:w-1/2 font-serif flex flex-col justify-between gap-10"
       >
         <div>
-          <h3 className="text-3xl md:text-3xl font-serif  text-purple-900 mb-4 leading-snug">
+          <h3 className="text-3xl md:text-3xl font-serif text-purple-900 mb-4 leading-snug">
             Disability Support Services in Australia
           </h3>
           <h4 className="text-2xl md:text-2xl font-serif text-purple-800 mb-6 leading-tight">

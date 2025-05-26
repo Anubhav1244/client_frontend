@@ -2,7 +2,7 @@ import React from 'react'
 
 const NDISBanner = () => {
   return (
-    <div className="relative w-full h-[380px] flex items-center justify-center bg-gradient-to-r from-purple-600 via-pink-300 to-green-300 overflow-hidden">
+    <div className="relative font-serif w-full h-[380px] flex items-center justify-center bg-gradient-to-r from-purple-600 via-pink-300 to-green-300 overflow-hidden">
       {/* Background Image */}
       <img
         src="https://www.wmq.org.au/images/default-source/core-images-library/disability-images/ndis-social-and-community-participation.jpg?sfvrsn=95b4f76c_2"

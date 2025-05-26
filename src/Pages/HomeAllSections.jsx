@@ -8,6 +8,7 @@ import HomeWhyChooseUs from '../Components/HomeWhyChooseUs'
 import Hometestimonial from '../Components/Hometestimonial'
 import HomeHowWeHelp from '../Components/HomeHowWeHelp'
 import NavbarNew from '../Components/NavbarNew'
+import GetHelpNowForm from '../Components/Gethelp'
 
 const HomeAllSections = () => {
   return (
@@ -15,6 +16,7 @@ const HomeAllSections = () => {
 
         {/* <Home/> */}
         {/* <NavbarNew/> */}
+        <GetHelpNowForm/>
         <NDISLandingPage/>
         <NdisHomeEnquiry/>
         <HomeGetYourOffer/>

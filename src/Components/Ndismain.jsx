@@ -43,7 +43,7 @@ export default function NdisInfo() {
             questions are just a guide, as the final decision is up to the NDIA.
           </p>
           <a
-            href="#"
+            href="https://www.ndis.gov.au/applying-access-ndis/am-i-eligible"
             className="inline-block bg-lime-400 text-[#1E2E5C] font-bold py-2 px-4 rounded-full hover:bg-lime-500 transition"
           >
             Eligibility Checklist
@@ -69,7 +69,7 @@ export default function NdisInfo() {
             completing an Access Request Form.
           </p>
           <a
-            href="#"
+            href="https://www.ndis.gov.au/applying-access-ndis/how-apply"
             className="inline-block bg-lime-400 text-[#1E2E5C] font-bold py-2 px-4 rounded-full hover:bg-lime-500 transition"
           >
             Apply For The NDIS

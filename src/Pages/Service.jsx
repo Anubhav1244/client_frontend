@@ -13,22 +13,22 @@ import { motion } from "framer-motion";
 const services = [
   { title: "Finding and Keeping a Job", image: jobImage, description: "We help you build the skills, confidence, and access to resources to secure and maintain meaningful employment." },
   { title: "Supported Independent Living (SIL)", image: sil, description: "Enjoy greater independence with round-the-clock support in a shared or individual living environment." },
-  { title: "Short Term Accommodation/Tenancy", image: sta, description: "Temporary housing support to help you transition or rest with comfort and safety." },
+  { title: " Assist with transportation ", image: sta, description: "Temporary housing support to help you transition or rest with comfort and safety." },
   { title: "Development of Daily Living & Life Skills", image: lifeskill, description: "Learn practical skills to improve self-care, communication, and independence." },
-  { title: "Therapeutic Supports", image: therapy, description: "Access to allied health professionals tailored to your unique needs and goals." },
+  { title: " Travel arrangements.", image: therapy, description: "Access to allied health professionals tailored to your unique needs and goals." },
   { title: "Overnight Care Active/Non-Active", image: sil, description: "We provide overnight support to ensure safety and assistance throughout the night." },
-  { title: "Community Nursing Care", image: therapy, description: "Qualified nurses deliver medical support in the comfort of your home." },
+  // { title: "Community Nursing Care", image: therapy, description: "Qualified nurses deliver medical support in the comfort of your home." },
   { title: "Group/Day Center Activities", image: lifeskill, description: "Engaging social and recreational activities in a community setting." },
   { title: "Participation in Community, Social and Civic Activities", image: household, description: "Connect with your community and engage in meaningful social opportunities." },
   { title: "Daily Personal Activities", image: overnight, description: "Assistance with daily routines including hygiene, mobility, and self-care." },
-  { title: "Household Tasks/Lawn Maintenance", image: household, description: "Support with cleaning, laundry, gardening, and meal prep." },
+  // { title: "Household Tasks/Lawn Maintenance", image: household, description: "Support with cleaning, laundry, gardening, and meal prep." },
   { title: "CB Social Community and Civic Participation", image: civic, description: "Grow your social network and explore new interests through local events." },
   { title: "CB Relationships", image: civic, description: "Support to foster and maintain healthy personal relationships." },
   { title: "CB Health and Wellbeing", image: sil, description: "Programs that promote physical, emotional, and mental wellbeing." },
   { title: "CB Lifelong Learning", image: civic, description: "Educational programs to build knowledge, confidence, and skills for life." },
   { title: "CB Daily Activity", image: lifeskill, description: "Support with everyday tasks that help you live your best life." },
   { title: "Meal Preparation", image: overnight, description: "Nutritious meal planning and cooking assistance based on your preferences." },
-  { title: "Support coordination", image: sta, description: "Navigate NDIS with ease using expert guidance and service coordination." },
+  // { title: "Support coordination", image: sta, description: "Navigate NDIS with ease using expert guidance and service coordination." },
 ];
 
 const Services = () => {
@@ -56,7 +56,7 @@ const Services = () => {
       transition={{duration:1,ease:"easeInOut"}}
         viewport={{ once: true }}
             key={index}
-            className="rounded-lg  hover:shadow-[0px_0px_20px_5px_purple] hover:scale-110 transition-all"
+            className="rounded-lg   hover:scale-110 transition-all"
           >
             <img
               src={service.image}

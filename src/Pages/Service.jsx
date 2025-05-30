@@ -11,7 +11,7 @@ import sil from "../assets/serv2.jpg";
 import sta from "../assets/serv3.jpg";
 import lifeskill from "../assets/serv16.jpg";
 import therapy from "../assets/serv5.jpg";
-import household from "../assets/serv8.jpg";
+
 import civic from "../assets/serv9.jpg";
 import overnight from "../assets/serv10.jpg";
 import CentreAct from "../assets/serv6.jpg";

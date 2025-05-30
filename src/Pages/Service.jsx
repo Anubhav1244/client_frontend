@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 const ServiceBanner = lazy(() => import("../Components/ServiceBanner"));
 
 // Images
-import jobImage from "../assets/serv1.JPG";
+import jobImage from "../assets/serv1.jpg";
 import sil from "../assets/serv2.jpg";
 import sta from "../assets/serv3.jpg";
 import lifeskill from "../assets/serv16.jpg";

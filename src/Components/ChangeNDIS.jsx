@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import photo from "../assets/photo.jpg";
-import Photo2 from "../assets/photo2.jpg";
+import Photo2 from "../assets/Photo2.jpg";
 
 const infoSections = [
   {
@@ -54,7 +54,8 @@ export default function ChangeProvider() {
         </p>
         <p className="font-bold text-lg sm:text-xl mt-6">
           We are happy to assist you throughout this process. Simply call{" "}
-          <span className="underline">1800 911 999</span>
+          <span className="underline">0411910741 , 0423301149
+</span>
         </p>
       </div>
 

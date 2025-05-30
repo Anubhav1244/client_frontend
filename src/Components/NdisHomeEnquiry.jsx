@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { apiConnector } from "../ApiConnector/Axios";
-import toast, { Toaster } from "react-hot-toast";
-import { th } from "framer-motion/client";
+import toast from "react-hot-toast";
+
 const NdisHomeEnquiry = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -20,14 +20,13 @@ const NdisHomeEnquiry = () => {
     }));
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, phone, locationofservice, message } = formData;
     const data = { name, email, phone, locationofservice, message };
 
-    await apiConnector("POST", "http://localhost:4000/api/v1/makeanEnquiry", data, null, null)
+    await apiConnector("POST", "http://localhost:4000/api/v1/makeanEnquiry", data)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           toast.success("Enquiry submitted successfully!");
           setFormData({
@@ -39,7 +38,6 @@ const NdisHomeEnquiry = () => {
           });
         } else {
           toast.error("Failed to submit enquiry. Please try again.");
-          throw new Error("Failed to submit enquiry");
         }
       })
       .catch((error) => {
@@ -49,7 +47,7 @@ const NdisHomeEnquiry = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-purple-50 flex flex-col lg:flex-row items-start justify-between px-6 md:px-16 py-16 gap-10">
+    <div className="min-h-screen bg-gradient-to-br from-white to-purple-50 flex flex-col lg:flex-row items-start justify-between px-4 sm:px-6 md:px-12 lg:px-16 py-10 md:py-16 gap-10">
 
       {/* Left Form Section */}
       <motion.div
@@ -57,9 +55,9 @@ const NdisHomeEnquiry = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
-        className="bg-white rounded-3xl p-10 w-full lg:w-1/2 border border-purple-100"
+        className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 w-full lg:w-1/2 border border-purple-100"
       >
-        <h2 className="text-3xl text-purple-900 mb-8 font-serif tracking-wide">
+        <h2 className="text-2xl sm:text-3xl text-purple-900 mb-6 sm:mb-8 font-serif tracking-wide text-center lg:text-left">
           MAKE AN ENQUIRY
         </h2>
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -106,7 +104,7 @@ const NdisHomeEnquiry = () => {
             onChange={handleChange}
             className="w-full border text-black font-serif border-purple-300 rounded-xl p-4 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm resize-none"
           ></textarea>
-          <div className="text-left">
+          <div className="text-center lg:text-left">
             <button
               type="submit"
               className="bg-purple-800 font-serif hover:bg-purple-700 text-white text-lg font-medium py-3 px-10 rounded-xl transition duration-300 shadow-lg"
@@ -126,13 +124,13 @@ const NdisHomeEnquiry = () => {
         className="w-full lg:w-1/2 font-serif flex flex-col justify-between gap-10"
       >
         <div>
-          <h3 className="text-3xl md:text-3xl font-serif text-purple-900 mb-4 leading-snug">
+          <h3 className="text-2xl sm:text-3xl font-serif text-purple-900 mb-4 leading-snug text-center lg:text-left">
             Disability Support Services in Australia
           </h3>
-          <h4 className="text-2xl md:text-2xl font-serif text-purple-800 mb-6 leading-tight">
+          <h4 className="text-xl sm:text-2xl font-serif text-purple-800 mb-6 leading-tight text-center lg:text-left">
             PERSONALISED CARE PLANS FOR THE BETTERMENT OF A COMMUNITY
           </h4>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+          <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6 text-center lg:text-left">
             Nurture Disability Support Services offers a complete range of NDIS approved support
             services to the clients. Our commitment to improving the client’s
             life quality makes us second to none. We believe that everyone
@@ -140,7 +138,7 @@ const NdisHomeEnquiry = () => {
             professional team offers a wide range of support services to people
             living with disabilities.
           </p>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 text-base sm:text-lg text-center lg:text-left">
             Call us today and we will provide you the best possible support to
             meet all your care needs.
           </p>
@@ -149,7 +147,7 @@ const NdisHomeEnquiry = () => {
           <img
             src="https://www.muslimcare.org.au/wp-content/uploads/2021/08/NDIS-1.png"
             alt="NDIS Logo"
-            className="w-36 md:w-48 drop-shadow-md"
+            className="w-28 sm:w-36 md:w-48 drop-shadow-md"
           />
         </div>
       </motion.div>

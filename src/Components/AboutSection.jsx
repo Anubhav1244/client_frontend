@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Photo from '../assets/photo.jpg';
-import Photo2 from '../assets/photo2.jpg';
+import Photo from '../assets/mission.jpg';
+import Photo2 from '../assets/vision.jpg';
+import Photo3 from '../assets/value.jpg';
+import Photo4 from "../assets/serv12.jpg";
+import Photo5 from "../assets/serv1.jpg";
+import Photo6 from "../assets/serv3.jpg";
+import Photo7 from "../assets/serv6.jpg";
+import Photo8 from "../assets/serv18.jpg";
 
 const About = () => {
   const [activeCard, setActiveCard] = useState(null);
@@ -14,6 +20,8 @@ const About = () => {
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   const infoSections = [
     {
@@ -32,7 +40,7 @@ const About = () => {
     },
     {
       key: 'Values',
-      image: Photo,
+      image: Photo3,
       content:
         'Integrity, empathy, and commitment are the core values that guide our every action and decision.',
       bg: 'bg-purple-400',
@@ -42,25 +50,25 @@ const About = () => {
   const pillars = [
     {
       title: 'Choice and Control',
-      img: Photo,
+      img: Photo4,
       description:
         'We empower participants to make their own decisions with confidence and independence.',
     },
     {
       title: 'Transparency',
-      img: Photo2,
+      img: Photo5,
       description:
         'Clear communication and honest service is the foundation of our approach.',
     },
     {
       title: 'Participant Focus',
-      img: Photo2,
+      img: Photo6,
       description:
         'Our services revolve around the unique needs and aspirations of every participant.',
     },
     {
       title: 'Growth',
-      img: Photo,
+      img: Photo7,
       description:
         'We help individuals unlock their full potential through consistent support and development.',
     },
@@ -95,8 +103,9 @@ const About = () => {
         </motion.div>
         <div className="md:w-1/2">
           <img
-            src={Photo}
+            src={Photo8}
             alt="Elderly couple outdoors"
+            loading="lazy"
             className="rounded-lg shadow-xl w-full max-w-md mx-auto md:mx-0"
           />
         </div>
@@ -114,6 +123,7 @@ const About = () => {
           <img
             src={Photo2}
             alt="Support and Care"
+            loading="lazy"
             className="rounded-lg shadow-xl w-full max-w-md mx-auto md:mx-0"
           />
         </motion.div>
@@ -136,25 +146,26 @@ const About = () => {
           <motion.div
             key={section.key}
             className={`relative h-80 flex items-center justify-center cursor-pointer overflow-hidden transition-all duration-500 ${
-              activeCard === section.key ? section.bg : ''
+              hoveredCard === section.key ? section.bg : ''
             }`}
             style={{
               backgroundImage:
-                activeCard === section.key ? 'none' : `url(${section.image})`,
+                hoveredCard === section.key ? 'none' : `url(${section.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
-            onClick={() => handleCardClick(section.key)}
+            onMouseEnter={() => setHoveredCard(section.key)}
+            onMouseLeave={() => setHoveredCard(null)}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            {activeCard !== section.key && (
+            {hoveredCard !== section.key && (
               <div className="absolute inset-0 bg-black opacity-30 z-0"></div>
             )}
 
-            {activeCard !== section.key && (
+            {hoveredCard !== section.key && (
               <motion.div
                 className="relative z-10 text-white text-3xl font-semibold"
                 whileHover={{ scale: 1.05 }}
@@ -165,7 +176,7 @@ const About = () => {
             )}
 
             <AnimatePresence>
-              {activeCard === section.key && (
+              {hoveredCard === section.key && (
                 <motion.div
                   className="absolute inset-0 p-6 flex items-center text-white text-sm font-light z-20"
                   initial={{ opacity: 0, y: 20 }}
@@ -197,6 +208,7 @@ const About = () => {
                 transition={{ duration: 0.3 }}
                 src={pillar.img}
                 alt={pillar.title}
+                loading="lazy"
                 className="rounded shadow-lg w-full h-48 object-cover mb-4"
               />
               <div className="bg-white text-purple-900 text-center py-4 px-3 rounded w-full">

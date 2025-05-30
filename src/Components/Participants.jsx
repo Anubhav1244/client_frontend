@@ -152,13 +152,14 @@ export default function App() {
                 {options.map(([value, label]) => (
                   <label key={value} className="flex items-center">
                     <input
-                      type="radio"
-                      name={name}
-                      value={value}
-                      checked={formData[name] === value}
-                      onChange={handleRadioChange}
-                      className="mr-2"
+                    type="radio"
+                    name={name}
+                    value={value}
+                    checked={formData[name] === value}
+                    onChange={handleRadioChange}
+                    className="appearance-none w-3 h-3 border-2 mr-2 border-lime-600 rounded-sm checked:bg-lime-600 checked:border-lime-600 focus:outline-none focus:ring-2 focus:ring-lime-400"
                     />
+
                     {label}
                   </label>
                 ))}

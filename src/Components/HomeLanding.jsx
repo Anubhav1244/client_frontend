@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // ✅ added useEffect
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
 
 const NDISLandingPage = () => {
   const backgroundImages = [
@@ -15,6 +14,14 @@ const NDISLandingPage = () => {
   const handleImageChange = (index) => {
     setCurrentImage(index);
   };
+
+  // ✅ Lazy load images (preload on mount)
+  useEffect(() => {
+    backgroundImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
     <div className="font-serif antialiased min-h-screen">

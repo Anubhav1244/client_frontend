@@ -9,13 +9,18 @@ import NavbarNew from './Components/NavbarNew'
 import Service from './Pages/Service'
 import NDIS from './Pages/Ndis'
 import GetHelpNowForm from './Components/Gethelp'
+import ScrollToTop from './Components/ScrollToTop'
+// import ParentComponent from './Components/ParentformComponent'
 
 const App = () => {
   return (
     <>
+    {/* <ParentComponent/> */}
     {/* <Navbar/> */}
+     <ScrollToTop />
     <NavbarNew/>
     <Routes>
+      
       <Route element={<GetHelpNowForm/>} path='/Gethelp'/>
       <Route element={<HomeAllSections/>}  path='/'/>
       <Route element={<About/>}  path='/about-us'/>

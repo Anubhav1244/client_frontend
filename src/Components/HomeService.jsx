@@ -51,6 +51,7 @@ const HomeService = () => {
                   <img
                     src={course.servideImage}
                     alt={course.serviceName}
+                    loading="lazy" // ✅ Lazy loading added
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     style={{
                       maskImage: `url("/images/bg-img-courses.png")`,
@@ -65,7 +66,7 @@ const HomeService = () => {
                 <div className="p-6 flex flex-col items-center text-left">
                   <Link
                     to={`/courses/1`}
-                    className="text-2xl font-serif text-[#6bbd00]  transition-colors duration-300 mb-3 font-salsa"
+                    className="text-2xl font-serif text-[#6bbd00] transition-colors duration-300 mb-3 font-salsa"
                   >
                     {course.serviceName}
                   </Link>

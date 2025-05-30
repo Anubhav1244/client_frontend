@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Mail, Phone } from "lucide-react";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -13,7 +14,8 @@ const NavbarNew = () => {
   return (
     <header className="w-full shadow-sm">
       {/* Top section with logo and contact */}
-      <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-36 py-4 bg-gray-50 font-serif space-y-4 md:space-y-0">
+      <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-36 py-4 bg-gray-50 font-serif space-y-6 md:space-y-0">
+        
         {/* Logo */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <img
@@ -26,24 +28,21 @@ const NavbarNew = () => {
           </p>
         </div>
 
-        {/* Contact Info */}
-        <div className="flex flex-col items-center md:items-end space-y-2 text-sm">
+        {/* Contact Info aligned equally */}
+        <div className="flex flex-col items-center md:items-end space-y-4 text-sm">
           {/* Email */}
           <div className="flex items-center space-x-2">
-            <span className="border border-green-500 p-1 rounded-sm text-green-600">
-              📧
-            </span>
-            <span className="text-center text-black md:text-right break-all">
+            <Mail className="w-5 h-5 text-lime-500" />
+            <span className="text-black text-base">
               info@nurturedisability.com.au
             </span>
           </div>
-
           {/* Phone */}
-          <div className="flex items-center space-x-2">
-            <span className="border  border-green-500 p-1 rounded-sm text-green-600">
-              📞
+          <div className="flex items-center  font-serif space-x-2">
+            <Phone className="w-5 h-5 text-lime-500 " />
+            <span className="text-black pr-6 font-serif text-base">
+              0411 910 741, 0423 301 149
             </span>
-            <span className="text-black flex items-center">0411910741 , 0423301149</span>
           </div>
         </div>
       </div>

@@ -42,19 +42,20 @@ const faqData = [
   },
   {
     question: "How do I find a service provider through the NDIS?",
-    answer:
-       <>
-      You can use the NDIS Provider Finder tool on the NDIS website to search for providers{" "}
-      <a
-        href="https://www.ndis.gov.au/participants/working-providers"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-600 underline hover:text-blue-800"
-      >
-        from here
-      </a>
-      .
-    </>
+    answer: (
+      <>
+        You can use the NDIS Provider Finder tool on the NDIS website to search for providers{" "}
+        <a
+          href="https://www.ndis.gov.au/participants/working-providers"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline hover:text-blue-800"
+        >
+          from here
+        </a>
+        .
+      </>
+    ),
   },
   {
     question: "Can I choose my own service provider?",
@@ -86,25 +87,27 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-10">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12 sm:py-16">
       <div className="w-full max-w-3xl">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6 border-l-8 border-green-500 pl-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 border-l-8 border-green-500 pl-4">
           NDIS FAQ:
         </h1>
-        <div className="bg-gray-100 rounded-2xl shadow">
+        <div className="bg-gray-100 rounded-2xl shadow-lg">
           {faqData.map((item, index) => (
             <div key={index} className="border-b last:border-b-0">
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full flex justify-between items-center p-4 text-left hover:bg-gray-200 focus:outline-none"
+                className="w-full flex justify-between items-center p-4 sm:p-6 text-left hover:bg-gray-200 focus:outline-none transition-colors duration-200"
               >
-                <span className="text-lg font-semibold text-gray-800">{item.question}</span>
-                <span className="text-green-500 text-xl font-bold">
+                <span className="text-base sm:text-lg font-semibold text-gray-800">
+                  {item.question}
+                </span>
+                <span className="text-green-500 text-2xl font-bold select-none">
                   {openIndex === index ? "−" : "+"}
                 </span>
               </button>
               {openIndex === index && (
-                <div className="px-4 pb-4 text-sm text-gray-700 transition-all duration-300">
+                <div className="px-4 sm:px-6 pb-6 text-sm sm:text-base text-gray-700 transition-all duration-300">
                   {item.answer}
                 </div>
               )}

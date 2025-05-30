@@ -16,7 +16,7 @@ const HomeAllSections = () => {
 
         {/* <Home/> */}
         {/* <NavbarNew/> */}
-        {/* <GetHelpNowForm/> */}
+        <GetHelpNowForm/>
         <NDISLandingPage/>
         <NdisHomeEnquiry/>
         <HomeGetYourOffer/>

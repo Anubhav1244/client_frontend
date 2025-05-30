@@ -3,8 +3,34 @@ import flag from "../assets/Fla.jpg";
 import flag2 from "../assets/flag2.jpg";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { label } from 'framer-motion/client';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  const footerLinks =[
+    {
+      label:"Home",
+      path:"/",
+    },
+    {
+      label:"About us",
+      path:"/about-us",
+    },
+   
+    {
+      label:"Services",
+      path:"/services",
+    },
+    {
+      label:"NDIS",
+      path:"/Ndis",
+    },
+   
+    {
+      label:"Contact Us",
+      path:"/contact",
+    },
+  ]
   return (
     <>
       {/* Acknowledgement Section */}
@@ -17,15 +43,16 @@ const Footer = () => {
         <p className="font-serif mb-2 max-w-3xl mx-auto">
           We’re here for you — don’t hesitate to get in touch if you require
           support or advice. Our client managers are on call from 9:00 AM – 5:00 PM.
-          Contact us on <strong>1800 911 999</strong>.
+          Contact us on <strong>0411910741 , 0423301149
+</strong>.
         </p>
         <p className="font-serif font-bold text-green-600">
           Email:{" "}
           <a
-            href="mailto:info@communityandcare.com.au"
+            href="mailto:info@nurturedisability.com.au"
             className="underline text-green-600 hover:text-white"
           >
-            info@communityandcare.com.au
+            info@nurturedisability.com.au
           </a>
         </p>
       </div>
@@ -44,8 +71,8 @@ const Footer = () => {
         {/* Company Links */}
         <nav>
           <h6 className="text-[#86c400] text-center font-serif text-2xl">Quick Links</h6>
-          {["Home","About us", "Contact", "Services", "NDIS","Feedback","Contact Us"].map((item) => (
-            <a key={item} className="link link-hover  hover:text-primary font-serif text-[18px] transition duration-300">{item}</a>
+          {footerLinks.map((item,index) => (
+            <Link key={index} to={item.path} className="link link-hover  hover:text-primary font-serif text-[18px] transition duration-300">{item.label}</Link>
           ))}
         </nav>
         

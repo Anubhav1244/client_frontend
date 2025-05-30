@@ -129,7 +129,7 @@ const FeedbackForm = () => {
                       value={num}
                       checked={formData[name] === `${num}`}
                       onChange={handleChange}
-                      className="mr-1"
+                      className="appearance-none w-4 h-4 border-2 border-lime-600 rounded-full mr-2 checked:bg-lime-600 checked:ring-2 checked:ring-lime-200 checked:border-lime-600"
                     />
                     {num}
                   </label>
@@ -151,7 +151,7 @@ const FeedbackForm = () => {
                     value={num}
                     checked={formData.equalityRating === `${num}`}
                     onChange={handleChange}
-                    className="mr-1"
+                    className="appearance-none w-4 h-4 border-2 border-lime-600 rounded-full mr-2 checked:bg-lime-600 checked:ring-2 checked:ring-lime-200 checked:border-lime-600"
                   />
                   {num}
                 </label>

@@ -97,11 +97,11 @@ const Contact = () => {
           </motion.button>
 
           <nav>
-            <div className="flex gap-4 mb-4 text-xl">
-              <a href="#"><FaFacebook className="hover:text-blue-500 transition" /></a>
-              <a href="#"><FaTwitter className="hover:text-sky-400 transition" /></a>
-              <a href="#"><FaInstagram className="hover:text-pink-500 transition" /></a>
-              <a href="#"><FaLinkedin className="hover:text-blue-700 transition" /></a>
+            <div className="flex gap-4  mb-4 text-xl ">
+              <a href="#"><FaFacebook className="text-black hover:text-blue-500  transition" /></a>
+              <a href="#"><FaTwitter className="text-black hover:text-sky-400 transition" /></a>
+              <a href="#"><FaInstagram className="text-black hover:text-pink-500 transition" /></a>
+              <a href="#"><FaLinkedin className="text-black hover:text-blue-700 transition" /></a>
             </div>
           </nav>
         </form>

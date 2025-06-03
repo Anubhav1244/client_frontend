@@ -43,7 +43,7 @@ const Footer = () => {
         <p className="font-serif mb-2 max-w-3xl mx-auto">
           We’re here for you — don’t hesitate to get in touch if you require
           support or advice. Our client managers are on call from 9:00 AM – 5:00 PM.
-          Contact us on <strong>0411910741 , 0423301149
+          Contact us on <strong> 0451223235 , 0423301149
 </strong>.
         </p>
         <p className="font-serif font-bold text-green-600">
@@ -80,7 +80,7 @@ const Footer = () => {
   <h6 className="text-lime-500 text-center font-serif text-2xl mb-2">Get In Touch</h6>
   {[
     { icon: <Mail className="w-5 h-5 text-lime-500 mr-2" />, text: "info@nurturedisability.com.au" },
-    { icon: <Phone className="w-5 h-5 text-lime-500 mr-2" />, text: "0411910741 , 0423301149" },
+    { icon: <Phone className="w-5 h-5 text-lime-500 mr-2" />, text: "0451223235 , 0423301149" },
     { icon: <MapPin className="w-5 h-5 text-lime-500 mr-2" />, text: "27, Easy St. Loganholme, QLD-4129" },
     { icon: <Clock className="w-5 h-5 text-lime-500 mr-2" />, text: "9:00 AM - 5:00 PM" }
   ].map((item, index) => (

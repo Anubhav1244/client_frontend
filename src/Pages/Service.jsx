@@ -21,7 +21,7 @@ import Lifilong from "../assets/serv12.jpg";
 import Social from "../assets/serv13.jpg";
 import Daily from "../assets/serv14.jpg";
 import Health from "../assets/serv11.jpg";
-import Meal from "../assets/serv15.jpg";
+import Meal from "../assets/meal.jpg";
 
 const services = [
   {
@@ -40,7 +40,7 @@ const services = [
     title: "Assist with transportation",
     image: sta,
     description:
-      "Temporary housing support to help you transition or rest with comfort and safety.",
+      " Support with Transport under the NDIS enables someone who needs assistance to get from one place to another. This may be for medical appointments, going to work, social activities, or simply going out into the fresh air.",
   },
   {
     title: "Development of Daily Living & Life Skills",
@@ -126,7 +126,7 @@ const Services = () => {
   return (
     <div className="bg-white text-black font-sans">
       {/* Lazy load ServiceBanner */}
-      <Suspense fallback={<div className="text-center py-10">Loading banner...</div>}>
+      <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
         <ServiceBanner />
       </Suspense>
 

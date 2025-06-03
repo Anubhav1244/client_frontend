@@ -3,8 +3,8 @@
  * Export all API endpoint URLs and functions here.
  */
 
-const API_BASE_URL = 'http://localhost:4000/api/v1';
-// const API_BASE_URL='https://backend-client-jdb2.onrender.com/api/v1'
+// const API_BASE_URL = 'http://localhost:4000/api/v1';
+const API_BASE_URL='https://backend-client-jdb2.onrender.com/api/v1'
 
 // Example API endpoints
 export const FEEDBACK = `${API_BASE_URL}/feedback`;

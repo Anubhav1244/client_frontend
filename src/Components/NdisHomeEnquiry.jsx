@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { apiConnector } from "../ApiConnector/Axios";
 import toast from "react-hot-toast";
+import {MAKE_ENQUIRY} from "../ApiConnector/apis";
 
 const NdisHomeEnquiry = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ const NdisHomeEnquiry = () => {
 
     setLoading(true);
     try {
-      const res = await apiConnector("POST", "http://localhost:4000/api/v1/makeanEnquiry", data);
+      const res = await apiConnector("POST", MAKE_ENQUIRY, data);
       if (res.status === 200) {
         toast.success("Enquiry submitted successfully!");
         setFormData({

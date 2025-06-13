@@ -34,7 +34,7 @@ const HomeGetYourOffer = () => {
             Get Your Special Offers Today
           </h2>
           <p className="text-gray-700 text-base sm:text-lg mb-2">
-            Simply contact our consultant today on <strong>0411910741 , 0423301149</strong> and
+            Simply contact our consultant today on <strong>0451223245 , 0423301149</strong> and
             make an appointment to meet in your home or anywhere you find ideal and
             receive your welcome pack.
           </p>

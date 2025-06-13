@@ -41,7 +41,7 @@ const NavbarNew = () => {
           <div className="flex items-center  font-serif space-x-2">
             <Phone className="w-5 h-5 text-lime-500 " />
             <span className="text-black pr-6 font-serif text-base">
-              0451 223 235, 0423 301 149
+              0451 223 245, 0423 301 149
             </span>
           </div>
         </div>

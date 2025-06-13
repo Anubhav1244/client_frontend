@@ -134,7 +134,7 @@ const Contact = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className={`bg-purple-900 text-white font-semibold py-3 px-8 rounded-md transition ${
+            className={`bg-purple-900 text-white cursor-pointer font-semibold py-3 px-8 rounded-md transition ${
               loading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-purple-700'
             }`}
             disabled={loading}

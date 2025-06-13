@@ -57,7 +57,7 @@ const NDISLandingPage = () => {
 
               <div className="flex flex-col sm:flex-row sm:justify-center md:justify-start gap-4">
                 <Link to="../services">
-                  <button className="bg-purple-800 hover:bg-purple-600 text-white font-semibold py-3 px-8 rounded-md transition duration-300">
+                  <button className="bg-purple-800 hover:bg-purple-600 text-white font-serif font-bold cursor-pointer py-3 px-8 rounded-2xl transition duration-300">
                     View Details
                   </button>
                 </Link>

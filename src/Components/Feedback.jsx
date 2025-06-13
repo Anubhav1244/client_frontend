@@ -189,7 +189,7 @@ const FeedbackForm = () => {
 
             <button
               type="submit"
-              className="bg-lime-500/80 text-white py-3 px-6 rounded-xl font-semibold tracking-wide hover:bg-lime-600 transition-all md:col-span-2 shadow-lg"
+              className="bg-lime-500/80 cursor-pointer text-white py-3 px-6 rounded-xl font-semibold tracking-wide hover:bg-lime-600 transition-all md:col-span-2 shadow-lg"
             >
               Submit Feedback
             </button>

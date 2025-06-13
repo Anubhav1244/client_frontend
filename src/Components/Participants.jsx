@@ -193,7 +193,7 @@ export default function App() {
           <div className="md:col-span-2 flex justify-center mt-6">
             <motion.button
               type="submit"
-              className="bg-lime-500/80 text-white px-10 py-3 rounded-sm font-semibold shadow-lg hover:bg-lime-600 transition-all"
+              className="bg-lime-500/80 cursor-pointer text-white px-10 py-3 rounded-sm font-semibold shadow-lg hover:bg-lime-600 transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >

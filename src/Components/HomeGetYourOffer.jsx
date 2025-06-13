@@ -43,7 +43,7 @@ const HomeGetYourOffer = () => {
             hour for free.
           </p>
           <Link to="/participant">
-            <button className="bg-purple-900 text-white px-6 py-3 rounded-full hover:bg-purple-800 transition">
+            <button className="bg-purple-900 cursor-pointer text-white px-6 py-3 rounded-full hover:bg-purple-800 transition">
               Sign Up
             </button>
           </Link>

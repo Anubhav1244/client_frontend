@@ -131,7 +131,7 @@ const NdisHomeEnquiry = () => {
           <div className="text-center lg:text-left">
             <button
               type="submit"
-              className={`bg-purple-800 font-serif hover:bg-purple-700 text-white text-lg font-medium py-3 px-10 rounded-xl transition duration-300 shadow-lg flex items-center justify-center gap-2 ${loading ? 'cursor-not-allowed opacity-70' : ''}`}
+              className={`bg-purple-800 font-serif cursor-pointer hover:bg-purple-700 text-white text-lg font-medium py-3 px-10 rounded-xl transition duration-300 shadow-lg flex items-center justify-center gap-2 ${loading ? 'cursor-not-allowed opacity-70' : ''}`}
               disabled={loading}
             >
               {loading && (

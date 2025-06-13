@@ -82,7 +82,7 @@ const Hometestimonial = () => {
                       (prev - 1 + testimonials.length) % testimonials.length
                   )
                 }
-                className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full hover:bg-blue-200 transition"
+                className="bg-blue-100 text-blue-700 cursor-pointer px-4 py-2 rounded-full hover:bg-blue-200 transition"
               >
                 Prev
               </button>
@@ -90,7 +90,7 @@ const Hometestimonial = () => {
                 onClick={() =>
                   setCurrent((prev) => (prev + 1) % testimonials.length)
                 }
-                className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full hover:bg-blue-200 transition"
+                className="bg-blue-100 cursor-pointer text-blue-700 px-4 py-2 rounded-full hover:bg-blue-200 transition"
               >
                 Next
               </button>

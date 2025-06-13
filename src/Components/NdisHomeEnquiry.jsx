@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { apiConnector } from "../ApiConnector/Axios";
 import toast from "react-hot-toast";
-import {MAKE_ENQUIRY} from "../ApiConnector/apis";
 
 const NdisHomeEnquiry = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +28,7 @@ const NdisHomeEnquiry = () => {
 
     setLoading(true);
     try {
-      const res = await apiConnector("POST", MAKE_ENQUIRY, data);
+      const res = await apiConnector("POST", "http://localhost:4000/api/v1/makeanEnquiry", data);
       if (res.status === 200) {
         toast.success("Enquiry submitted successfully!");
         setFormData({
@@ -54,8 +53,8 @@ const NdisHomeEnquiry = () => {
     <div className="relative min-h-screen bg-gradient-to-br from-white to-purple-50 flex flex-col lg:flex-row items-start justify-between px-4 sm:px-6 md:px-12 lg:px-16 py-10 md:py-16 gap-10">
       {loading && (
         <div className="absolute inset-0 bg-white/60 z-50 flex flex-col justify-center items-center space-y-4">
-          <div className="w-12 h-12 border-4 border-purple-300 border-t-purple-700 rounded-full animate-spin" aria-label="Loading Spinner" role="status"></div>
-          <p className="text-purple-800 text-lg font-semibold font-serif">Submitting...</p>
+          <div className="w-12 h-12 border-4 border-gray-400 border-t-gray-600 rounded-full animate-spin" aria-label="Loading Spinner" role="status"></div>
+          <p className="text-gray-600 text-lg font-semibold font-serif">Submitting...</p>
         </div>
       )}
 
@@ -72,10 +71,52 @@ const NdisHomeEnquiry = () => {
         </h2>
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 font-serif md:grid-cols-2 gap-6">
-            <input name="name" required type="text" placeholder="Name" value={formData.name} onChange={handleChange} className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm" />
-            <input name="email" required type="email" placeholder="Email" value={formData.email} onChange={handleChange} className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm" />
-            <input name="phone" type="tel" placeholder="Telephone" value={formData.phone} onChange={handleChange} className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm" />
-            <input name="locationofservice" placeholder="Location of Service" value={formData.locationofservice} onChange={handleChange} className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm" />
+            <input
+              name="name"
+              required
+              type="text"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+            />
+            <input
+              name="email"
+              required
+              type="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+            />
+            <input
+              name="phone"
+              type="tel"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              placeholder="Telephone"
+              value={formData.phone}
+              onChange={handleChange}
+              onKeyDown={(e) => {
+                if (
+                  !/[0-9]/.test(e.key) &&
+                  e.key !== "Backspace" &&
+                  e.key !== "Tab" &&
+                  e.key !== "ArrowLeft" &&
+                  e.key !== "ArrowRight"
+                ) {
+                  e.preventDefault();
+                }
+              }}
+              className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+            />
+            <input
+              name="locationofservice"
+              placeholder="Location of Service"
+              value={formData.locationofservice}
+              onChange={handleChange}
+              className="border text-black border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all shadow-sm"
+            />
           </div>
 
           <textarea

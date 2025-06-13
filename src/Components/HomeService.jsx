@@ -1,27 +1,27 @@
-import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const HomeService = () => {
   const serviceArray = [
     {
       serviceName: "Approved Specialised Disability Accommodations",
       servideImage:
-        "https://communityandcare.com.au/wp-content/uploads/2020/11/Approved-Specialised-Disability-Accommodations.jpg",
+        "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749742235/homeserv1_uoqw91.jpg",
       serviceDescription:
         "It refers to the specialist housing solutions to provide the participants with the support they need.",
     },
     {
       serviceName: "Finding and Keeping a Job",
       servideImage:
-        "https://communityandcare.com.au/wp-content/uploads/2020/11/leg-impairment.jpg",
+        "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749742298/homeserv2_u4uifs.jpg",
       serviceDescription:
         "Do you need support to help you get a suitable job? Nurture Disability Support Services can help participants who want to work.",
     },
     {
       serviceName: "Supported Independent Living (SIL)",
       servideImage:
-        "https://communityandcare.com.au/wp-content/uploads/2020/11/community-and-care-3.jpg",
+        "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749742349/homeserv3_soykoe.jpg",
       serviceDescription:
         "As the name suggests, supported independent living is a shagreen accommodation.",
     },
@@ -30,7 +30,9 @@ const HomeService = () => {
   return (
     <>
       <section className="font-serif w-full container mx-auto px-4 py-12 bg-[#59168c]">
-        <h1 className="text-center text-white font-serif font-medium text-4xl mb-12">Our Services</h1>
+        <h1 className="text-center text-white font-serif font-medium text-4xl mb-12">
+          Our Services
+        </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-12">
           {serviceArray.map((course, index) => {
             const ref = useRef(null);
@@ -51,7 +53,7 @@ const HomeService = () => {
                   <img
                     src={course.servideImage}
                     alt={course.serviceName}
-                    loading="lazy" // ✅ Lazy loading added
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     style={{
                       maskImage: `url("/images/bg-img-courses.png")`,
@@ -80,7 +82,10 @@ const HomeService = () => {
         </div>
 
         <div className="flex justify-center items-center mt-16">
-          <Link className="text-lg rounded-full bg-purple-600 text-white px-6 py-2">
+          <Link
+            to="../services"
+            className="text-lg rounded-full bg-purple-600 text-white px-6 py-2"
+          >
             Learn more
           </Link>
         </div>

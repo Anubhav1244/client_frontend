@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HomeGetYourOffer = () => {
   return (
@@ -41,9 +42,11 @@ const HomeGetYourOffer = () => {
             Once you are a Nurture Disability Support Services member, you will receive your first
             hour for free.
           </p>
-          <button className="bg-purple-900 text-white px-6 py-3 rounded-full hover:bg-purple-800 transition">
-            Sign Up
-          </button>
+          <Link to="/participant">
+            <button className="bg-purple-900 text-white px-6 py-3 rounded-full hover:bg-purple-800 transition">
+              Sign Up
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

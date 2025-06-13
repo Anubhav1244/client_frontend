@@ -69,8 +69,8 @@ const Contact = () => {
     <div className="min-h-screen w-full bg-white relative overflow-hidden">
       {loading && (
         <div className="absolute inset-0 bg-white/70 z-50 flex flex-col items-center justify-center space-y-4">
-          <div className="w-12 h-12 border-4 border-purple-300 border-t-purple-700 rounded-full animate-spin"></div>
-          <p className="text-purple-800 text-lg font-semibold font-serif">Sending...</p>
+          <div className="w-12 h-12 border-4 border-gray-400 border-t-gray-600 rounded-full animate-spin"></div>
+          <p className="text-gray-400 text-lg font-semibold font-serif">Submitting...</p>
         </div>
       )}
 
@@ -91,7 +91,28 @@ const Contact = () => {
                 name={field}
                 value={formData[field]}
                 onChange={handleChange}
-                type={field === 'email' ? 'email' : 'text'}
+                type={
+                  field === 'email'
+                    ? 'email'
+                    : field === 'phone'
+                    ? 'tel'
+                    : 'text'
+                }
+                inputMode={field === 'phone' ? 'numeric' : undefined}
+                pattern={field === 'phone' ? '[0-9]*' : undefined}
+                onKeyDown={
+                  field === 'phone'
+                    ? (e) => {
+                        if (
+                          !/[0-9]/.test(e.key) &&
+                          e.key !== 'Backspace' &&
+                          e.key !== 'Tab'
+                        ) {
+                          e.preventDefault();
+                        }
+                      }
+                    : undefined
+                }
                 placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
                 className="border p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
                 disabled={loading}

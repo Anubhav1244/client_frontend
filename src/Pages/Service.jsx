@@ -5,23 +5,29 @@ import { useInView } from "react-intersection-observer";
 // Lazy load the ServiceBanner component
 const ServiceBanner = lazy(() => import("../Components/ServiceBanner"));
 
-// Images
-import jobImage from "../assets/serv1.jpg";
-import sil from "../assets/serv2.jpg";
-import sta from "../assets/serv3.jpg";
-import lifeskill from "../assets/serv16.jpg";
-import therapy from "../assets/serv5.jpg";
+/// Cloudinary-hosted images
+const jobImage = "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749742428/serv1_wxaqtb.jpg";
+const Living = "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749742545/serv7_ko4h4v.jpg";
+const sta = "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749742598/serv3_aqfokd.jpg";
+const Social = "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749743549/serv13_dfnqnr.jpg";
+const overnight ="https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749742711/serv10_rbbud5.jpg";
+const sil ="https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749742778/serv8_v3fhnr.jpg";
+const CentreAct ="https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749742923/com_eyoml0.jpg";
+const therapy = "https://res.cloudinary.com/dpl3ucukv/image/upload/v1749668098/serv5_irv3ta.jpg";
+const civic = "https://res.cloudinary.com/dpl3ucukv/image/upload/v1749668291/serv9_be1ycf.jpg";
+const Relationship = "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749743136/serv4_bwysej.jpg";
+const Health = "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749743207/serv11_etrx0c.jpg";
+const Lifilong ="https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749743262/serv12_dmtukk.jpg";
+const Daily = "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749743307/serv14_nqwzny.jpg";
+const Meal = "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749743344/meal_zz2t4f.jpg";
+const lifeskill = "https://res.cloudinary.com/ddz4x5dvd/image/upload/v1749743408/serv16_bpgi1d.jpg";
 
-import civic from "../assets/serv9.jpg";
-import overnight from "../assets/serv10.jpg";
-import CentreAct from "../assets/serv6.jpg";
-import Living from "../assets/serv7.jpg";
-import Relationship from "../assets/serv4.jpg";
-import Lifilong from "../assets/serv12.jpg";
-import Social from "../assets/serv13.jpg";
-import Daily from "../assets/serv14.jpg";
-import Health from "../assets/serv11.jpg";
-import Meal from "../assets/meal.jpg";
+
+
+
+
+
+
 
 const services = [
   {
@@ -40,7 +46,7 @@ const services = [
     title: "Assist with transportation",
     image: sta,
     description:
-      " Support with Transport under the NDIS enables someone who needs assistance to get from one place to another. This may be for medical appointments, going to work, social activities, or simply going out into the fresh air.",
+      "Support with Transport under the NDIS enables someone who needs assistance to get from one place to another. This may be for medical appointments, going to work, social activities, or simply going out into the fresh air.",
   },
   {
     title: "Development of Daily Living & Life Skills",
@@ -125,12 +131,10 @@ const Services = () => {
 
   return (
     <div className="bg-white text-black font-sans">
-      {/* Lazy load ServiceBanner */}
       <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
         <ServiceBanner />
       </Suspense>
 
-      {/* Grid of services */}
       <motion.div
         className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         initial={{ opacity: 0, scale: 0.9 }}
@@ -161,7 +165,9 @@ const Services = () => {
                     loading="lazy"
                   />
                   <div className="p-5 bg-purple-900 rounded-b-lg text-white flex flex-col justify-between h-fit">
-                    <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
+                    <h3 className="text-lg font-semibold mb-2">
+                      {service.title}
+                    </h3>
                     {expandedIndex === index && (
                       <p className="text-sm text-purple-100 mb-3">
                         {service.description}

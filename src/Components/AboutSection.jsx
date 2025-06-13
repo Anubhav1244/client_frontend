@@ -29,21 +29,21 @@ const About = () => {
       image: Photo,
       content:
         'Our mission is to empower individuals with disabilities by providing accessible and high-quality support that promotes independence and dignity.',
-      bg: 'bg-lime-400',
+      bg: 'bg-lime-400 text-white text-xl ',
     },
     {
       key: 'Vision',
       image: Photo2,
       content:
         'We envision a world where all individuals, regardless of ability, have equal opportunities to thrive and contribute meaningfully to society.',
-      bg: 'bg-orange-300',
+      bg: 'bg-orange-300 text-white text-xl',
     },
     {
       key: 'Values',
       image: Photo3,
       content:
         'Integrity, empathy, and commitment are the core values that guide our every action and decision.',
-      bg: 'bg-purple-400',
+      bg: 'bg-purple-400 text-white text-xl',
     },
   ];
 

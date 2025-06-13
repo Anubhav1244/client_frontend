@@ -10,6 +10,7 @@ import Service from './Pages/Service'
 import NDIS from './Pages/Ndis'
 import GetHelpNowForm from './Components/Gethelp'
 import ScrollToTop from './Components/ScrollToTop'
+import Participant from "./Components/Participants";
 // import ParentComponent from './Components/ParentformComponent'
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
       <Route element={<Contact/>} path='/contact'/>
       <Route element={<Service/>} path='/services'/>
       <Route element={<NDIS/>} path='/Ndis'/>
+       <Route element={<Participant/>} path='/participant'/>
 
     </Routes>
 

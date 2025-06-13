@@ -10,7 +10,14 @@ export default function App() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "phoneNumber") {
+      // Allow only digits for phone number
+      const numericValue = value.replace(/\D/g, "");
+      setFormData((prev) => ({ ...prev, [name]: numericValue }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleRadioChange = (e) => {
@@ -75,13 +82,9 @@ export default function App() {
 
       {/* Custom Loading Overlay */}
       {loading && (
-        <div className="fixed inset-0 bg-white/70 backdrop-blur-sm flex flex-col items-center justify-center z-50">
-          <motion.div
-            className="w-16 h-16 border-4 border-lime-600 border-dashed rounded-full animate-spin"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          />
-          <p className="mt-4 text-lg font-semibold text-lime-800">Submitting...</p>
+        <div className="absolute inset-0 bg-white/70 z-50 flex flex-col items-center justify-center space-y-4">
+          <div className="w-12 h-12 border-4 border-gray-400 border-t-gray-600 rounded-full animate-spin"></div>
+          <p className="text-gray-400 text-lg font-semibold font-serif">Submitting...</p>
         </div>
       )}
 
@@ -178,7 +181,7 @@ export default function App() {
                       value={value}
                       checked={formData[name] === value}
                       onChange={handleRadioChange}
-                      className="appearance-none w-3 h-3 sm:w-4 sm:h-4 border-2 mr-2 border-lime-600 rounded-sm checked:bg-lime-600 checked:border-lime-600 focus:outline-none focus:ring-2 focus:ring-lime-400"
+                      className="appearance-none w-3 h-3 sm:w-4 sm:h-4 border-2 mr-2 border-lime-600 rounded-full checked:bg-lime-600 checked:border-lime-600 focus:outline-none focus:ring-2 focus:ring-lime-400"
                     />
                     {label}
                   </label>
@@ -190,7 +193,7 @@ export default function App() {
           <div className="md:col-span-2 flex justify-center mt-6">
             <motion.button
               type="submit"
-              className="bg-lime-500/80 text-white px-10 py-3 rounded-full font-semibold shadow-lg hover:bg-lime-600 transition-all"
+              className="bg-lime-500/80 text-white px-10 py-3 rounded-sm font-semibold shadow-lg hover:bg-lime-600 transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >

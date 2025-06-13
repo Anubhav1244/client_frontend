@@ -12,14 +12,24 @@ const GetHelpNowForm = ({ onClose }) => {
     message: "",
   });
 
-  const [loading, setLoading] = useState(false); // <-- New loading state
+  const [loading, setLoading] = useState(false);
   const closeRef = useRef(null);
 
   const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    const { name, value } = e.target;
+
+    if (name === "phone") {
+      const numericValue = value.replace(/\D/g, "");
+      setFormData((prev) => ({
+        ...prev,
+        [name]: numericValue,
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -30,7 +40,7 @@ const GetHelpNowForm = ({ onClose }) => {
       return;
     }
 
-    setLoading(true); // Start loading
+    setLoading(true);
 
     try {
       const data = {
@@ -53,7 +63,7 @@ const GetHelpNowForm = ({ onClose }) => {
       console.error(error);
       toast.error("Failed to send message");
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
@@ -70,10 +80,10 @@ const GetHelpNowForm = ({ onClose }) => {
     >
       <Toaster />
 
-      {/* Spinner Overlay */}
       {loading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/70 z-50 rounded">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-purple-800 border-solid border-r-transparent"></div>
+        <div className="absolute inset-0 bg-white/70 z-50 flex flex-col items-center justify-center space-y-4">
+          <div className="w-12 h-12 border-4 border-gray-400 border-t-gray-600 rounded-full animate-spin"></div>
+          <p className="text-gray-400 text-lg font-semibold font-serif">Submitting...</p>
         </div>
       )}
 

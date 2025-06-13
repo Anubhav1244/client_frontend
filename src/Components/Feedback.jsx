@@ -21,7 +21,13 @@ const FeedbackForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "contact") {
+      const numericValue = value.replace(/\D/g, "");
+      setFormData((prev) => ({ ...prev, [name]: numericValue }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -92,10 +98,11 @@ const FeedbackForm = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-green-200 py-10 px-4 flex items-center justify-center">
       <div className="relative w-full max-w-5xl">
-        {/* Spinner Overlay */}
+        {/* Updated Spinner Overlay */}
         {loading && (
-          <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-3xl">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-lime-600 border-solid border-r-transparent"></div>
+          <div className="absolute inset-0 bg-white/70 z-50 flex flex-col items-center justify-center space-y-4">
+            <div className="w-12 h-12 border-4 border-gray-400 border-t-gray-600 rounded-full animate-spin"></div>
+            <p className="text-gray-400 text-lg font-semibold font-serif">Submitting...</p>
           </div>
         )}
 

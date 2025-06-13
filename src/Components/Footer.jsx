@@ -122,7 +122,7 @@ const Footer = () => {
   {/* Centered text with heading */}
   <div className="flex-1 text-center px-2">
     <h2 className="text-base md:text-lg font-bold text-red-700 font-serif mb-1">
-      "See the ability, not the disability"
+      "See the Ability, not the disability"
     </h2>
     <p className="text-xs md:text-sm font-serif">
       We acknowledge the traditional owners of country throughout Australia, and their continuing connection to land, sea and community. We pay our respects to them and their cultures, and to elders past and present.

@@ -171,7 +171,7 @@ const Contact = () => {
             </div>
             <h3 className="text-purple-900 text-lg mb-2">Phone</h3>
             <a href="tel:1800911999" className="text-gray-600 hover:text-purple-700">
-              0451223235 , 0423301149
+              0451223245 , 0423301149
             </a>
           </motion.div>
 

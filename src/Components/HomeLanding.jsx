@@ -51,7 +51,7 @@ const NDISLandingPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 1 }}
                 >
-                  Nurture Disability Support Services
+                  Nurture DisAbility Support Services
                 </motion.span>
               </h1>
 

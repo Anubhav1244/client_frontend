@@ -65,7 +65,7 @@ const Footer = () => {
           <div className="w-80 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img src="/images/logo.png" alt="logo" className="w-full object-cover hover:opacity-80 transition-opacity duration-300" />
           </div>
-          <h6 className='font-serif text-bold text-purple-900'>Nurture Disability Support Services</h6>
+          <h6 className='font-serif text-bold text-purple-900'>Nurture DisAbility Support Services</h6>
         </aside>
 
         {/* Company Links */}

@@ -24,7 +24,7 @@ const NavbarNew = () => {
             className="w-40 h-auto md:w-56 md:h-44 object-contain"
           />
           <p className="text-[#59168b] text-sm mt-2">
-            Nurture Disability Support Services
+            Nurture DisAbility Support Services
           </p>
         </div>
 
